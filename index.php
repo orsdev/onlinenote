@@ -18,18 +18,18 @@
     </button>
     <div id="my-nav" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class=" nav-item mr-2 active">
           <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class=" nav-item mr-2">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Help</a>
         </li>
-        <li class="nav-item">
+        <li class=" nav-item mr-2">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact us</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        <li class=" nav-item">
           <a class="nav-link" href="#loginmodal" class="btn" data-target="#loginmodal" data-toggle="modal">Login</a>
         </li>
       </ul>

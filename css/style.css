@@ -1,3 +1,9 @@
+:root {
+  --dark-green: #82c91e;
+  --light-green: #66a80f;
+  --light-blue: #d8dee9;
+}
+
 html {
   min-height: 100%;
   position: relative;
@@ -18,7 +24,7 @@ footer {
 .btn-lg,
 .login,
 .forgot {
-  background: #82c91e;
+  background: var(--dark-green , #82c91e);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -31,7 +37,7 @@ footer {
 .btn-lg:hover,
 .login,
 .forgot {
-  background: #66a80f;
+  background: var(--dark-green ,#66a80f);
 }
 
 .signup-btn::after {
@@ -49,7 +55,7 @@ footer {
 }
 
 .signup-btn:active::after {
-  box-shadow: 0 0 5px 5px #66a80f;
+  box-shadow: 0 0 5px 5px var(--dark-green ,#66a80f);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -60,4 +66,41 @@ footer {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+}
+
+.active {
+  border-bottom: 3px solid var(--dark-green ,#66a80f);
+}
+
+.note-container {
+  margin-top: 5rem;
+}
+
+.all-note,
+.notepad-container,
+.done {
+  display: none;
+}
+
+.notepad {
+  box-shadow: 0 2px 4px 1px gainsboro;
+  border: 2px solid white;
+  border-bottom: 5px inset var(--light-blue ,#d8dee9);
+  padding: 1rem;
+  color: grey;
+  border-left: 3px outset var(--dark-green);
+  resize: horizontal;
+  max-width: 350px;
+  min-width: 300px;
+}
+
+@media  (max-width: 325px){
+.buttons {
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons .btn-group:nth-child(even) {
+  margin-top: 10px;
+}
 }
