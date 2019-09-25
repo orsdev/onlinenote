@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> NOTE || MAIN PAGE</title>
+  <title> NOTIE || MAIN PAGE</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,13 +19,13 @@
     <div id="my-nav" class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class=" nav-item mr-2">
-          <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
         </li>
         <li class=" nav-item mr-2">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Help</a>
+          <a class="nav-link" href="help.php" tabindex="-1" aria-disabled="true">Help</a>
         </li>
         <li class=" nav-item mr-2">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact us</a>
+          <a class="nav-link" href="contact.php" tabindex="-1" aria-disabled="true">Contact us</a>
         </li>
         <li class=" nav-item active">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Saved notes</a>

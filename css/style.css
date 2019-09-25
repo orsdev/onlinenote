@@ -36,7 +36,8 @@ footer {
 
 .btn-lg:hover,
 .login,
-.forgot {
+.forgot,
+.submitbutton {
   background: var(--dark-green ,#66a80f);
 }
 
@@ -72,7 +73,8 @@ footer {
   border-bottom: 3px solid var(--dark-green ,#66a80f);
 }
 
-.note-container {
+.note-container,
+.profile-container {
   margin-top: 5rem;
 }
 
@@ -92,6 +94,10 @@ footer {
   resize: horizontal;
   max-width: 350px;
   min-width: 300px;
+}
+
+table {
+  cursor: pointer;
 }
 
 @media  (max-width: 325px){
