@@ -78,12 +78,11 @@
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
-     <div class="alert alert-danger editusername-message">
      </div>
      <div class="modal-body">
       <form action="" method="POST" id="editusername">
        <div class="form-group">
-       <label for="text" class="h5">Username</label>
+        <label for="text" class="h5">Username</label>
         <input type="text" name="editusername" id="text" class="editusername form-control form-control-lg" maxlength="30" required value="">
        </div>
        <div class="row">
@@ -98,8 +97,8 @@
   </div>
   <!-- EDIT USERNAME MODAL & FORM END -->
 
-    <!-- EDIT EMAIL MODAL & FORM -->
-    <div id="updateemail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="updateemaillabel" aria-hidden="true">
+  <!-- EDIT EMAIL MODAL & FORM -->
+  <div id="updateemail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="updateemaillabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
     <div class="modal-content">
      <div class="modal-header">
@@ -108,12 +107,11 @@
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
-     <div class="alert alert-danger editemail-message">
      </div>
      <div class="modal-body">
       <form action="" method="POST" id="editemail">
        <div class="form-group">
-       <label for="email" class="h5">Email</label>
+        <label for="email" class="h5">Email</label>
         <input type="email" name="editemail" id="email" class="editemail form-control form-control-lg" minlength="11" required value="">
        </div>
        <div class="row">
@@ -128,8 +126,8 @@
   </div>
   <!-- EDIT EMAIL MODAL & FORM END -->
 
-    <!-- EDIT PASSWORD MODAL & FORM -->
-    <div id="updatepassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="updatepasswordlabel" aria-hidden="true">
+  <!-- EDIT PASSWORD MODAL & FORM -->
+  <div id="updatepassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="updatepasswordlabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
     <div class="modal-content">
      <div class="modal-header">
@@ -138,20 +136,19 @@
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
-     <div class="alert alert-danger editpassword-message">
      </div>
      <div class="modal-body">
       <form action="" method="POST" id="editpassword">
-       <div class="form-group"> 
-       <label for="Current Password" class="sr-only">Email</label>
+       <div class="form-group">
+        <label for="Current Password" class="sr-only">Email</label>
         <input type="password" name="currentpassword" id="currentpassword" class="currentpassword form-control form-control-lg" minlength="6" maxlength="20" value="" placeholder="Current Password" required>
        </div>
        <div class="form-group">
-       <label for="New Password" class="sr-only">Email</label>
+        <label for="New Password" class="sr-only">Email</label>
         <input type="password" name="newpassword" id="newpassword" class="newpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="New Password" required>
        </div>
        <div class="form-group">
-       <label for="Confirm Password" class="sr-only">Email</label>
+        <label for="Confirm Password" class="sr-only">Email</label>
         <input type="password" name="confirmpassword" id="password" class="confirmpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="Confirm Password" required>
        </div>
        <div class="row">
