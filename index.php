@@ -36,7 +36,7 @@
 
    <!-- LOGIN MODAL & FORM -->
    <div id="loginmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog" role="document">
      <div class="modal-content">
       <div class="modal-header">
        <h5 class="modal-title" id="my-modal-title">Login</h5>
@@ -88,7 +88,7 @@
    <!-- SIGN UP MODAL & FORM -->
    <button class="btn btn-lg text-light signup-btn" data-target="#signupmodal" data-toggle="modal">SIGN UP</button>
    <div id="signupmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog" role="document">
      <div class="modal-content">
       <div class="modal-header">
        <h5 class="modal-title" id="my-modal-title">Sign Up</h5>
@@ -96,7 +96,7 @@
         <span aria-hidden="true">&times;</span>
        </button>
       </div>
-      <div class="alert alert-danger signup-message">
+      <div class="signup-message">
       </div>
       <div class="modal-body">
        <form action="" method="POST" id="formsignup">
@@ -123,7 +123,7 @@
 
    <!-- FORGOT MODAL & FORM -->
    <div id="forgotmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="forgotmodal-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog" role="document">
      <div class="modal-content">
       <div class="modal-header">
        <h5 class="modal-title" id="my-modal-title">Enter your email address to reset your password</h5>
@@ -158,7 +158,7 @@
  <script src="js/jquery.min.js"></script>
  <script src="js/popper.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
- <script src="js/app.js"></script>
+ <script src="index.js"></script>
 </body>
 
 </html>
