@@ -84,7 +84,7 @@ $email = mysqli_real_escape_string($connect, $email);
 $password = mysqli_real_escape_string($connect, $password);
 
 //query to check if username exist
-$sql = "SELECT * FROM users WHERE email = '$username'";
+$sql = "SELECT * FROM users WHERE username = '$username'";
 
 //make query
 $result = mysqli_query($connect, $sql);
