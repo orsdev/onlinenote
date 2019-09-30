@@ -16,6 +16,9 @@ $missingPassword2 = '<p><strong> Please confirm your password</string></p>';
 $differentPassword = '<p><strong> Passwords don\'t match</p>';
 
 $errors = '';
+$username = null;
+$password = null;
+$email = null;
 
 //get username
 if (isset($_POST['username'])) {
@@ -73,15 +76,18 @@ if (isset($_POST['password'])) {
 
 //if theres an error, output error messages
 if ($errors) {
- $errorMessage = '<div class="alert alert-danger">' . $errors . '</div>';
-
+ $errorMessage = "<div class='alert alert-danger'>" . $errors . "</div>";
  echo $errorMessage;
+ exit;
 }
 
 //no errors
 $username = mysqli_real_escape_string($connect, $username);
 $email = mysqli_real_escape_string($connect, $email);
 $password = mysqli_real_escape_string($connect, $password);
+
+//hash your password for security purposes, md5 is not the strongest hashing function, there are others
+$password = hash('sha256', $password);
 
 //query to check if username exist
 $sql = "SELECT * FROM users WHERE username = '$username'";
@@ -91,14 +97,14 @@ $result = mysqli_query($connect, $sql);
 
 //stop query from running if there is an error
 if (!$result) {
- die('<p class="alert alert-danger"> Error: Query error</p>');
+ die("<p class='alert alert-danger'> Error: Query error</p>");
 };
 
 $numRows = mysqli_num_rows($result);
 
 if ($numRows > 0) {
  //show message if username exist
- echo '<p class="alert alert-danger"> Username is already taken</p>';
+ echo "<p class='alert alert-danger'> Username is already taken</p>";
  exit;
 }
 
@@ -111,13 +117,46 @@ $result = mysqli_query($connect, $sql);
 
 //stop query from running if there is an error
 if (!$result) {
- die('<p class="alert alert-danger"> Error: Query error</p>');
+ die("<p class='alert alert-danger'> Error: Query error</p>");
 };
 
 $numRows = mysqli_num_rows($result);
 
 if ($numRows > 0) {
  //show message if username exist
- echo '<p class="alert alert-danger"> Email address has already been registered.</p>';
+ echo "<p class='alert alert-danger'> Email address has already been registered.</p>";
  exit;
-}
+};
+
+//create unique activation code
+$activationKey = bin2hex(openssl_random_pseudo_bytes(16));
+
+//query to insert into table
+$sql = "INSERT INTO 
+users(username , email, password , activation)
+ VALUES('$username' , '$email' , '$password' , '$activationKey')";
+
+//make query
+$result = mysqli_query($connect, $sql);
+
+//stop query from running if there is error
+if (!$result) {
+ die("<p class='alert alert-danger'> Error: Unable into insert user datails into database</p>");
+};
+
+/*
+send user an email with a link to activate.php with
+their email and activation code
+*/
+
+$message = "Please click on this link to activate your account\n\n";
+$message .= "http://127.0.0.1:5500/activate.php?email=" . urlencode($email) . "&key=$activationKey";
+$subject = "Confirm your Registration";
+$header = "From: onlinenotes@gmail.com";
+
+//check if mail has no error
+if (mail($email, $subject, $message, $header)) {
+ echo "<p class='alert alert-success'> Thank you for registering. A confirmation email has been sent to the email address provided. Please click on the activation link to activate your account</p>";
+};
+
+mysqli_close($connect);
