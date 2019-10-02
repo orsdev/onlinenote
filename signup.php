@@ -55,7 +55,7 @@ if (isset($_POST['password'])) {
  if (strlen($_POST['password']) == 0) {
   $errors .= $missingPassword;
   //if true, assign error
- } elseif (!(strlen($_POST['password']) > 6 && preg_match('/[A-Z]/', $_POST['password']) && preg_match('/[0-9]/', $_POST['password']))) {
+ } elseif (!(strlen($_POST['password']) >= 6 && preg_match('/[A-Z]/', $_POST['password']) && preg_match('/[0-9]/', $_POST['password']))) {
   $errors .= $invalidPassword;
  } else {
   $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
