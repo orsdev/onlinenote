@@ -44,12 +44,12 @@
         <span aria-hidden="true">&times;</span>
        </button>
       </div>
-      <div class="alert alert-danger login-message">
+      <div class=" text-center login-message">
       </div>
       <div class="modal-body">
        <form action="" method="POST" id="formlogin">
         <div class="form-group">
-         <input type="email" name="email1" id="email1" class="email1 form-control form-control-lg" placeholder="Enter your email">
+         <input type="text" name="email1" id="email1" class="email1 form-control form-control-lg" placeholder="Enter your email">
         </div>
         <div class="form-group">
          <input type="password" name="password1" id="password1" class="password1 form-control form-control-lg" placeholder="Enter your password">
@@ -104,7 +104,7 @@
          <input type="text" name="username" id="user" class="username form-control form-control-lg" placeholder="Username">
         </div>
         <div class="form-group">
-         <input type="email" name="email" id="email" class="email form-control form-control-lg" placeholder="Email address">
+         <input type="text" name="email" id="email" class="email form-control form-control-lg" placeholder="Email address">
         </div>
         <div class="form-group">
          <input type="password" name="password" id="password" class="password form-control form-control-lg" placeholder="Enter a password">
@@ -136,7 +136,7 @@
       <div class="modal-body">
        <form action="" method="POST" id="forgotform">
         <div class="form-group">
-         <input type="email" name="forgotemail" id="forgotemail" class="email form-control form-control-lg" placeholder="Email address">
+         <input type="text" name="forgotemail" id="forgotemail" class="email form-control form-control-lg" placeholder="Email address">
         </div>
         <div class="form-group">
          <input type="submit" value="Submit" class="btn-md forgot btn text-light" name="forgetbutton">
