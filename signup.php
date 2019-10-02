@@ -1,10 +1,10 @@
 <?php
+// Start Session;
+session_start();
 
 //import connection.php file
 include 'connection.php';
-
-// Start Session;
-session_start();
+ 
 //define error messages
 $missingEmail = '<p><strong> Please enter a email</strong> </p>';
 $missingUsername = '<p><strong>Please enter a username</p>';
