@@ -1,3 +1,15 @@
+<?php
+ //start session
+ session_start();
+ //import connection.php
+ include 'connection.php';
+
+ //remember me
+ include 'remember.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

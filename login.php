@@ -61,13 +61,17 @@ if ($rowCount == 1) {
  $row = mysqli_fetch_assoc($result);
 
  //store data into session
- $_SESSION['user_id'] = $row['user_id'];
  $_SESSION['username'] = $row['username'];
  $_SESSION['email'] = $row['email'];
 
  if (empty($_POST['remember'])) {
   echo 'success';
  } else {
+  /*
+  session set here for
+  remember.php
+  */
+  $_SESSION['user_id'] = $row['user_id'];
   /*
   generate two random numbers
    and store in two variables
