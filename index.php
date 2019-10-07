@@ -2,10 +2,11 @@
  //start session
  session_start();
  //import connection.php
- include 'connection.php';
-
- //remember me
- include 'remember.php';
+include 'connection.php';
+//import logout
+include 'logout.php';
+ //import remember me
+include 'remember.php';
 
 ?>
 
