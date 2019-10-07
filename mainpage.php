@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+/*
+ redirect user back to the index page
+ if session is not set
+*/
+ if(!isset($_SESSION['email'])){
+  header('Location: index.php');
+ };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +48,7 @@
      <a class="nav-link" href="#" class="btn">Logged in as <b>%username%</b></a>
     </li>
     <li class=" nav-item">
-     <a class="nav-link" href="#" class="btn">Log out</a>
+     <a class="nav-link" href="index.php?logout=true" class="btn">Log out</a>
     </li>
    </ul>
   </div>
