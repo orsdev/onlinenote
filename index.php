@@ -144,7 +144,7 @@ include 'remember.php';
         <span aria-hidden="true">&times;</span>
        </button>
       </div>
-      <div class="alert alert-danger forgot-message">
+      <div class="forgot-message">
       </div>
       <div class="modal-body">
        <form action="" method="POST" id="forgotform">
