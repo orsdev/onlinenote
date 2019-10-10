@@ -19,6 +19,7 @@ session_start();
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <title> NOTIE || MAIN PAGE</title>
  <link rel="stylesheet" href="css/bootstrap.css">
+ <link rel="stylesheet" href="css/font-awesome.min.css">
  <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -67,8 +68,8 @@ session_start();
       <button id="edit" class="btn btn-md btn-outline-info">Edit</button>
      </div>
     </div>
-
-    <div class="row mt-4 notepad-container">
+   </div>
+   <div class="row mt-4 notepad-container">
      <div class="col-lg-12">
       <div class="note-pad">
        <textarea name="notepad" id="notepad" class="notepad" cols="30" rows="10"></textarea>
@@ -77,11 +78,10 @@ session_start();
     </div>
 
     <div class="row notes-wrapper mt-4">
-     <div class="col-lg-12 notes container w-75">
+     <div class="col-lg-12 notes container w-100">
 
      </div>
     </div>
-   </div>
   </div>
  </main>
 
@@ -94,6 +94,7 @@ session_start();
  <script src="js/jquery.min.js"></script>
  <script src="js/popper.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
+ <script src="mynotes.js"></script>
 </body>
 
 </html>
