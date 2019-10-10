@@ -63,6 +63,8 @@ if ($rowCount == 1) {
  //store data into session
  $_SESSION['username'] = $row['username'];
  $_SESSION['email'] = $row['email'];
+ $_SESSION['note_id'] = $row['user_id'];
+ 
 
  if (empty($_POST['remember'])) {
   echo 'success';
@@ -72,6 +74,7 @@ if ($rowCount == 1) {
   remember.php
   */
   $_SESSION['user_id'] = $row['user_id'];
+
   /*
   generate two random numbers
    and store in two variables
