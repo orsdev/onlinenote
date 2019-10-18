@@ -56,6 +56,13 @@ session_start();
  </nav>
  <main>
   <div class="container note-container">
+  <!-- ALERT MESSAGE -->
+  <div class="alert-container">
+   <div id="alert" class="text-center alert alert-danger close col-12">
+    <a href="" class="close" data-dismiss="alert">&times;</a>
+    <p id="alert-content"></p>
+   </div>
+</div>
    <div class="row p-1">
     <div class="col-lg-12 d-flex justify-content-between buttons">
      <div class="btn-group mr-2">
