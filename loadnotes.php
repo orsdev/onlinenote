@@ -52,7 +52,7 @@ if ($count > 0) {
 
   echo  "<div id='$id' class='mb-3 mx-auto mynote p-2 w-50'> 
 <span class='d-block h4 text'> $note </span>
-<span class='small text-light'> $date </span>
+<span class='small'> $date </span>
 </div>";
  }
 } else {
