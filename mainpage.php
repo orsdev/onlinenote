@@ -5,9 +5,9 @@ session_start();
  redirect user back to the index page
  if session is not set
 */
- if(!isset($_SESSION['email'])){
-  header('Location: index.php');
- };
+if (!isset($_SESSION['email'])) {
+ header('Location: index.php');
+};
 ?>
 
 <!DOCTYPE html>
@@ -56,13 +56,13 @@ session_start();
  </nav>
  <main>
   <div class="container note-container">
-  <!-- ALERT MESSAGE -->
-  <div class="alert-container">
-   <div id="alert" class="text-center alert alert-danger close col-12">
-    <a href="" class="close" data-dismiss="alert">&times;</a>
-    <p id="alert-content"></p>
+   <!-- ALERT MESSAGE -->
+   <div class="alert-container">
+    <div id="alert" class="text-center alert alert-danger close col-12">
+     <a href="" class="close" data-dismiss="alert">&times;</a>
+     <p id="alert-content"></p>
+    </div>
    </div>
-</div>
    <div class="row p-1">
     <div class="col-lg-12 d-flex justify-content-between buttons">
      <div class="btn-group mr-2">
@@ -77,18 +77,20 @@ session_start();
     </div>
    </div>
    <div class="row mt-4 notepad-container">
-     <div class="col-lg-12">
-      <div class="note-pad">
+    <div class="col-lg-12">
+     <div class="note-pad">
+     <form action="" method="post">
        <textarea name="notepad" id="notepad" class="notepad" cols="30" rows="10"></textarea>
-      </div>
+      </form>
      </div>
     </div>
+   </div>
 
-    <div class="row notes-wrapper mt-4">
-     <div class="col-lg-12 notes container w-100">
+   <div class="row notes-wrapper mt-4 mb-5">
+    <div class="col-lg-12 notes container w-100">
 
-     </div>
     </div>
+   </div>
   </div>
  </main>
 
@@ -103,5 +105,4 @@ session_start();
  <script src="js/bootstrap.min.js"></script>
  <script src="mynotes.js"></script>
 </body>
-
 </html>
