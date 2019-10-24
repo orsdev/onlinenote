@@ -32,7 +32,7 @@ include 'connection.php';
    <div class="m-auto col-sm-8 col-md-8 col-lg-6 contactForm">
     <h1>Reset Password</h1>
     <div class="message py-3">
-     
+
     </div>
     <?php
 
@@ -94,14 +94,17 @@ include 'connection.php';
     </form>";
 
     echo $form;
+
+    //close connection
+    mysqli_close($connect);
     ?>
 
    </div>
   </div>
   <script src="js/jquery.min.js"></script>
- <script src="js/popper.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="reset.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="reset.js"></script>
  </div>
 </body>
 

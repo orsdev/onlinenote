@@ -167,3 +167,8 @@ if ($rowCount == 1) {
  echo $errorMessage;
  exit;
 }
+
+//close connection
+mysqli_close($connect);
+
+?>

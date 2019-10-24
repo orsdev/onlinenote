@@ -28,4 +28,7 @@ if(mysqli_error($connect)){
 */
 echo mysqli_insert_id($connect);
 
+//close connection
+mysqli_close($connect);
+
 ?>

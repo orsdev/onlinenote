@@ -135,8 +135,14 @@ if(!hash_equals($row['f2authentificator2'] , $f2authentificator2)){
 
   //update session
   $_SESSION['user_id'] = $row['user_id'];
+  //set new session
   $_SESSION['note_id'] = $row['user_id'];
   //redirect user to mainpage
   header("Location: mainpage.php");
 };
 }
+
+//close connection
+mysqli_close($connect);
+
+?>

@@ -86,7 +86,7 @@ their email and activation code
 */
 
 $message = "Please click on this link to reset your password\n\n";
-$message .= "http://127.0.0.1:5500/resetpassword.php?user_id=$user_id&key=$key";
+$message .= "http://127.0.0.1:5500/note/resetpassword.php?user_id=$user_id&key=$key";
 $subject = "Reset your Password";
 $header = "From: onlinenotes@gmail.com";
 

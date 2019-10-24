@@ -82,6 +82,9 @@ include 'connection.php';
      echo $errorMessage;
     };
 
+    //close connection
+    mysqli_close($connect);
+
     ?>
 
    </div>

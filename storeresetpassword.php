@@ -2,27 +2,11 @@
   //import connection.php
   include 'connection.php';
 
-  // if(isset($_GET['key'])){
-  //  echo 'yes';
-  // }else { echo 'not set';};
-  // //check if user_id or key is missing
-
-  // if (
-  //  !isset($_GET['user_id'])
-  //  || !isset($_GET['key'])
-  // ) {
-  //  $errorMessage = "<div class='alert alert-danger'>
-  //      There was an error. Please click on
-  //      the reset password link received by email.
-  //      </div>";
-  //  echo $errorMessage;
-  //  exit;
-  // };
-
   //store key & id in two variables
   $user_id = $_POST['user_id'];
   $key = $_POST['key'];
- 
+
+  //prepare error messages
   $missingPassword = '<p><strong>Please enter a password</strong></p>';
   $invalidPassword = '<p><strong>Your password should be at least 6 characters long and include a capital letter and one number</strong></p>';
   $missingPassword2 = '<p><strong> Please re-enter your password</string></p>';
@@ -68,15 +52,15 @@
   //prepare for query
   $password = mysqli_real_escape_string($connect, $password);
   $user_id = mysqli_real_escape_string($connect, $user_id);
-  
+
   //hash password
-  $password = hash("sha256" , $password);
+  $password = hash("sha256", $password);
 
   //query to run
   $sql = "UPDATE users SET password='$password' WHERE user_id = '$user_id'";
 
   //run query
-  $result = mysqli_query($connect , $sql);
+  $result = mysqli_query($connect, $sql);
 
   //stop query if error is found
   if (!$result) {
@@ -90,14 +74,15 @@
    user from re-using a key
    */
 
-   //query to set status to used
-   $sql = "UPDATE forgotpassword SET status='used' where user_id='$user_id' AND user_key='$key'";
- 
-   //run query
-   $result = mysqli_query($connect , $sql);
+  //query to set status to used
+  $sql = "UPDATE forgotpassword SET status='used' where user_id='$user_id' AND user_key='$key'";
 
-     //stop query if error is found
-  if (!$result) { echo mysqli_error($connect);
+  //run query
+  $result = mysqli_query($connect, $sql);
+
+  //stop query if error is found
+  if (!$result) {
+   echo mysqli_error($connect);
    die("<p class='alert alert-danger'>
    Unable to reset your password. Please try again.</p>");
   };
@@ -105,6 +90,8 @@
   $successMessage = "<p class='alert alert-success'> Your password has been updated successfully. 
   <a href='http://127.0.0.1:5500' class=''>Login</a> </p>";
 
-  echo $successMessage ;
+  echo $successMessage;
 
+  //close connection
+  mysqli_close($connect);
   ?>
