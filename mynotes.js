@@ -43,9 +43,9 @@ elements
  }
 
  //all-note button function
- function allNote(val1, val2, val3, val4, val5, val6) {
+ function loadHide(id, val1, val2, val3, val4, val5, val6) {
   //add click event to all note button
-  $('#all-note').click(function () {
+  $(id).click(function () {
 
    /*
 call hideShow function and
@@ -95,7 +95,8 @@ hide and show targeted elements
      $('textarea').focus();
 
      //call all note function
-     allNote('#all-note', '#done', '.notepad-container', '#add-note', '#edit', '.notes');
+     loadHide('#all-note', '#all-note', '#done',
+      '.notepad-container', '#add-note', '#edit', '.notes');
     }
    },
    error: function (error) {
@@ -106,7 +107,7 @@ hide and show targeted elements
  });
 
  //event to edit and update note
- $('.notes').on('click', '.mynote', function (e) {
+ $('.notes').on('click', '.wrap', function (e) {
 
   //store note text in a variable
   let note = $(this).find('.text').text();
@@ -127,7 +128,8 @@ hide and show targeted elements
   activeNote = $(this).attr('id');
 
   //call all note function
-  allNote('#all-note', '#done', '.notepad-container', '#add-note', '#edit', '.notes');
+  loadHide('#all-note', '#all-note', '#done',
+   '.notepad-container', '#add-note', '#edit', '.notes');
 
  });
 
@@ -151,5 +153,55 @@ hide and show targeted elements
    }
   })
  });
+
+  //event to delete note in database
+ $('#edit').click(function () {
+  //hide and show element
+  $('#edit').hide();
+  $('#done').show();
+
+  //show delete button
+  $('.delete').show();
+
+  //add click event to delete
+  $('.delete').click(function (e) {
+   //get targeted element
+   let target = e.target;
+
+   //get element data
+   let dataId = $(this).attr('data-delete');
+
+   //make ajax call
+   $.ajax({
+    url: 'deletenote.php',
+    data: { id: dataId },
+    type: 'POST',
+    success: function (response) {
+     $('.alert-container').show();
+     $('#alert-content').text(response);
+
+     //wait and hide alert-container
+     setTimeout(() => {
+      $('.alert-container').hide();
+     }, 2500);
+
+   //delete note container div
+     if(target.tagName === 'I'){
+      target.parentElement.remove();
+     }
+     
+    },
+    error: function () {
+     $('#alert-content').text('There was an error with the Ajax Call. Please try again later!');
+    }
+   })
+  });
+
+  //call all note function
+  loadHide('#done', '#all-note', '#done',
+   '.notepad-container', '#add-note', '#edit', '.notes');
+
+
+ })
 
 }); 
