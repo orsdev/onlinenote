@@ -42,7 +42,7 @@ if ($count > 0) {
  while ($row = mysqli_fetch_assoc($result)) {
   $note = $row['note'];
   $time = $row['time'];
-  $date = date("F d Y H:i:s A" , $time);
+  $date = date("F d Y H:i:s A", $time);
 
   /*
    store note id in variable,
@@ -50,10 +50,14 @@ if ($count > 0) {
    */
   $id = $row['id'];
 
-  echo  "<div id='$id' class='mb-3 mx-auto mynote p-2 w-50'> 
-<span class='d-block h4 text'> $note </span>
-<span class='small'> $date </span>
-</div>";
+  echo  "
+  <div class='mb-3 mx-auto mynote p-2'>
+<i class='fa fa-trash text-danger delete btn mr-2' data-delete='$id'></i>
+   <div class='wrap mx-auto' id='$id'>
+    <span class='d-block h4 text'> $note </span>
+    <span class='small'> $date </span>
+   </div>
+  </div>";
  }
 } else {
  $message = "<p class='mt-4 alert text-center
