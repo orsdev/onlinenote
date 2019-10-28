@@ -123,8 +123,22 @@ opacity: .8;
 .mynote {
  color: black;
  box-shadow: 2px 4px 5px .1px gainsboro;
+ display: flex;
+ width: 70%;
+}
+
+.wrap {
+ overflow: hidden;
+ flex-basis: 90%;
 }
 
 .alert-container {
  display: none;
+}
+
+.delete {
+display: none;
+flex-basis: 30px;
+align-self: center;
+background: rgb(235, 235, 235);
 }
