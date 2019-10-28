@@ -58,8 +58,7 @@ if (!isset($_SESSION['email'])) {
   <div class="container note-container">
    <!-- ALERT MESSAGE -->
    <div class="alert-container">
-    <div id="alert" class="text-center alert alert-danger close col-12">
-     <a href="" class="close" data-dismiss="alert">&times;</a>
+    <div id="alert" class="text-center pt-3 pb-2 badge badge-danger col-12">
      <p id="alert-content"></p>
     </div>
    </div>
