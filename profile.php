@@ -1,3 +1,42 @@
+<?php
+ //start session
+ session_start();
+ //import connection
+ include 'connection.php';
+
+ /* Redirect user back to 
+  homepage if not logged in
+  */
+  if(!isset($_SESSION['email'])){
+   header('Location: index.php');
+  };
+
+  //get id from session,
+  //id is same as user_id
+  $id = $_SESSION['note_id'];
+
+  //query to run
+ $sql = "SELECT * FROM users WHERE user_id='$id' LIMIT 1";
+
+ //run query
+ $result = mysqli_query($connect , $sql);
+
+ /* if true, show error message,
+   and stop code from executing further
+   */
+ if(!$result){
+  echo "<div><strong> Unable to connect to the database</strong></div>";
+  exit;
+ };
+
+$row = mysqli_fetch_assoc($result);
+//store values in a variable
+  $username = $row['username'];
+  $email = $row['email'];
+
+  //close connection
+  mysqli_close($connect);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,15 +67,15 @@
      <a class="nav-link" href="contact.php" tabindex="-1" aria-disabled="true">Contact us</a>
     </li>
     <li class=" nav-item">
-     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Saved notes</a>
+     <a class="nav-link" href="mainpage.php" tabindex="-1" aria-disabled="true">Saved notes</a>
     </li>
    </ul>
    <ul class="navbar-nav ml-auto">
     <li class=" nav-item">
-     <a class="nav-link" href="#" class="btn">Logged in as <b>%username%</b></a>
+     <a class="nav-link" href="#" class="btn">Logged in as <b><code><?php echo $username ?></code></b></a>
     </li>
     <li class=" nav-item">
-     <a class="nav-link" href="#" class="btn">Log out</a>
+     <a class="nav-link" href="index.php?logout=true" class="btn">Log out</a>
     </li>
    </ul>
   </div>
@@ -53,11 +92,17 @@
      <table class="table-hover w-75 table-condensed m-auto">
       <tr data-target="#updateusername" data-toggle="modal">
        <td>Username</td>
-       <td>Value</td>
+       <td><strong>
+        <?php echo $username ?>
+       </strong>
+      </td>
       </tr>
       <tr data-target="#updateemail" data-toggle="modal">
        <td>Email</td>
-       <td>Value</td>
+       <td><strong>
+        <?php echo $email ?>
+       </strong>
+      </td>
       </tr>
       <tr data-target="#updatepassword" data-toggle="modal">
        <td>Password</td>
@@ -78,12 +123,14 @@
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
-     </div>
+     <div class="editusername-message text-center">
+    
+      </div>
      <div class="modal-body">
       <form action="" method="POST" id="editusername">
        <div class="form-group">
         <label for="text" class="h5">Username</label>
-        <input type="text" name="editusername" id="text" class="editusername form-control form-control-lg" maxlength="30" required value="">
+        <input type="text" name="editusername" id="text" class="editusername form-control form-control-lg" maxlength="30" required value="<?php echo $username ?>">
        </div>
        <div class="row">
         <div class="col-12 text-center">
@@ -94,7 +141,8 @@
      </div>
     </div>
    </div>
-  </div>
+   </div>
+
   <!-- EDIT USERNAME MODAL & FORM END -->
 
   <!-- EDIT EMAIL MODAL & FORM -->
@@ -107,12 +155,11 @@
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
-     </div>
      <div class="modal-body">
       <form action="" method="POST" id="editemail">
        <div class="form-group">
         <label for="email" class="h5">Email</label>
-        <input type="email" name="editemail" id="email" class="editemail form-control form-control-lg" minlength="11" required value="">
+        <input type="email" name="editemail" id="email" class="editemail form-control form-control-lg" minlength="11" required value="<?php echo $email ?>">
        </div>
        <div class="row">
         <div class="col-12 text-center">
@@ -135,7 +182,6 @@
       <button class="close" data-dismiss="modal" aria-label="Close">
        <span aria-hidden="true">&times;</span>
       </button>
-     </div>
      </div>
      <div class="modal-body">
       <form action="" method="POST" id="editpassword">
@@ -174,7 +220,7 @@
  <script src="js/jquery.min.js"></script>
  <script src="js/popper.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
- <script src="js/app.js"></script>
+ <script src="profile.js"></script>
 </body>
 
 </html>

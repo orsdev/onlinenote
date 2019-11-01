@@ -40,13 +40,10 @@ if (!isset($_SESSION['email'])) {
     <li class=" nav-item mr-2">
      <a class="nav-link" href="contact.php" tabindex="-1" aria-disabled="true">Contact us</a>
     </li>
-    <li class=" nav-item active">
-     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Saved notes</a>
-    </li>
    </ul>
    <ul class="navbar-nav ml-auto">
     <li class=" nav-item">
-     <a class="nav-link" href="#" class="btn">Logged in as <b>%username%</b></a>
+     <a class="nav-link" href="#" class="btn">Logged in as <b><code><?php echo $_SESSION['username'] ?></b></code></a>
     </li>
     <li class=" nav-item">
      <a class="nav-link" href="index.php?logout=true" class="btn">Log out</a>
