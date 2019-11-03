@@ -130,7 +130,7 @@ $row = mysqli_fetch_assoc($result);
       <form action="" method="POST" id="editusername">
        <div class="form-group">
         <label for="text" class="h5">Username</label>
-        <input type="text" name="editusername" id="text" class="editusername form-control form-control-lg" maxlength="30" required value="<?php echo $username ?>">
+        <input type="text" name="editusername" id="text" class="editusername form-control form-control-lg" maxlength="30"  value="<?php echo $username ?>">
        </div>
        <div class="row">
         <div class="col-12 text-center">
@@ -155,11 +155,14 @@ $row = mysqli_fetch_assoc($result);
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
+     <div class="editemail-message text-center">
+    
+    </div>
      <div class="modal-body">
       <form action="" method="POST" id="editemail">
        <div class="form-group">
         <label for="email" class="h5">Email</label>
-        <input type="email" name="editemail" id="email" class="editemail form-control form-control-lg" minlength="11" required value="<?php echo $email ?>">
+        <input type="text" name="mail" id="email" class="mail form-control form-control-lg" minlength="11"  value="<?php echo $email ?>">
        </div>
        <div class="row">
         <div class="col-12 text-center">
@@ -183,19 +186,22 @@ $row = mysqli_fetch_assoc($result);
        <span aria-hidden="true">&times;</span>
       </button>
      </div>
+     <div class="editpassword-message text-center">
+    
+    </div>
      <div class="modal-body">
       <form action="" method="POST" id="editpassword">
        <div class="form-group">
-        <label for="Current Password" class="sr-only">Email</label>
-        <input type="password" name="currentpassword" id="currentpassword" class="currentpassword form-control form-control-lg" minlength="6" maxlength="20" value="" placeholder="Current Password" required>
+        <label for="Current Password" class="sr-only">Current Password</label>
+        <input type="password" name="currentpassword" id="currentpassword" class="currentpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="Current Password" >
        </div>
        <div class="form-group">
-        <label for="New Password" class="sr-only">Email</label>
-        <input type="password" name="newpassword" id="newpassword" class="newpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="New Password" required>
+        <label for="New Password" class="sr-only">New Password</label>
+        <input type="password" name="newpassword" id="newpassword" class="newpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="New Password" >
        </div>
        <div class="form-group">
-        <label for="Confirm Password" class="sr-only">Email</label>
-        <input type="password" name="confirmpassword" id="password" class="confirmpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="Confirm Password" required>
+        <label for="Confirm Password" class="sr-only">Confirm Password</label>
+        <input type="password" name="confirmpassword" id="password" class="confirmpassword form-control form-control-lg" minlength="6" maxlength="20" placeholder="Confirm Password" >
        </div>
        <div class="row">
         <div class="col-12 text-center">

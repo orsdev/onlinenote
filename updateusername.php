@@ -5,7 +5,7 @@ session_start();
 include 'connection.php';
 
 //get id from session
-$sessionUsername = $_SESSION['username'];
+$id = $_SESSION['note_id'];
 
 //define error messages
 $missingUsername = '<p><strong> Please enter your new username</strong> </p>';
@@ -40,7 +40,7 @@ if ($errors) {
 $username = mysqli_real_escape_string($connect , $username);
 
 //query to run
-$sql = "UPDATE users SET username = '$username' WHERE username='$sessionUsername'";
+$sql = "UPDATE users SET username = '$username' WHERE user_id='$id'";
 
 //run query
 $result = mysqli_query($connect , $sql);

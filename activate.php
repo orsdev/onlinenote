@@ -71,7 +71,7 @@ include 'connection.php';
      Your account has been activated
      </p>";
      echo $successMessage;
-     echo "<a href='http://127.0.0.1:5500' type='button' class='btn btn-lg btn-success'>Login</a>";
+     echo "<a href='http://127.0.0.1:5500/note' type='button' class='btn btn-lg btn-success'>Login</a>";
     } else {
 
      //show error message

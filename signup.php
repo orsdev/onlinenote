@@ -150,9 +150,9 @@ their email and activation code
 */
 
 $message = "Please click on this link to activate your account\n\n";
-$message .= "http://127.0.0.1:5500/activate.php?email=" . urlencode($email) . "&key=$activationKey";
+$message .= "http://127.0.0.1:5500/note/activate.php?email=" . urlencode($email) . "&key=$activationKey";
 $subject = "Confirm your Registration";
-$header = "From: onlinenotes@gmail.com";
+$header = "From: onlinenote@gmail.com";
 
 //check if mail has no error
 if (mail($email, $subject, $message, $header)) {
@@ -160,3 +160,4 @@ if (mail($email, $subject, $message, $header)) {
 };
 
 mysqli_close($connect);
+?>

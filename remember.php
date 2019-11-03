@@ -56,7 +56,7 @@ if(!hash_equals($row['f2authentificator2'] , $f2authentificator2)){
   */
 
    /*
-   generate reandom strings and convert to hexadecimal,
+   generate random strings and convert to hexadecimal,
    10bytes = 10 * 8(1 bytes = 8bits) => 80 => 80 / 4 => 20characters
   */
   $authentificator1 = bin2hex(openssl_random_pseudo_bytes(10));
