@@ -52,11 +52,12 @@ if ($count > 0) {
 
   echo  "
   <div class='mb-3 mx-auto mynote p-2'>
-<i class='fa fa-trash text-danger delete btn mr-2' data-delete='$id'></i>
    <div class='wrap mx-auto' id='$id'>
     <span class='d-block h4 text'> $note </span>
     <span class='small'> $date </span>
    </div>
+   <i class='fa fa-pencil text-primary edit btn mr-1' data-edit='$id'></i>
+   <i class='fa fa-trash text-danger delete btn' data-delete='$id'></i>
   </div>";
  }
 } else {

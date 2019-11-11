@@ -22,7 +22,7 @@ if (!isset($_SESSION['email'])) {
  <link rel="stylesheet" href="css/font-awesome.min.css">
  <link rel="stylesheet" href="css/style.css">
 </head>
-
+ 
 <body>
  <nav class="navbar navbar-expand-md navbar-light bg-transparent">
   <a class="navbar-brand">Notie</a>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['email'])) {
    </ul>
   </div>
  </nav>
- <main>
+ <main> 
   <div class="container note-container">
    <!-- ALERT MESSAGE -->
    <div class="alert-container">
@@ -82,8 +82,8 @@ if (!isset($_SESSION['email'])) {
     </div>
    </div>
 
-   <div class="row notes-wrapper mt-4 mb-5">
-    <div class="col-lg-12 notes container w-100">
+   <div class="row notes-wrapper w-100 mt-4 mb-5 container mx-auto">
+    <div class="notes w-100 mx-auto">
 
     </div>
    </div>

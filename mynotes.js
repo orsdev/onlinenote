@@ -13,6 +13,19 @@ $(document).ready(function () {
    url: 'loadnotes.php',
    success: function (response) {
     $('.notes').html(response);
+
+    //get element
+    let notes = $('.notes').find('p.alert');
+
+    /*notes.length returns 1 or 0,
+    1 is element exists,
+    0 if it doesn't
+    */
+    if (notes.length) {
+     $('.notes').css('display', 'block'); console.log(
+    } else {
+     $('.notes').css('display', 'grid');
+    }
    },
    error: function (error) {
     $('.alert-container').show();
@@ -22,8 +35,8 @@ $(document).ready(function () {
   });
  }
 
- //function hides and show elements
- function hideShow(arr1, arr2) {
+ //function hides and show buttons
+ function hideShowButtons(arr1, arr2) {
   /*
   loop through array and hide
   elements
@@ -42,16 +55,17 @@ elements
 
  }
 
- //all-note button function
- function loadHide(id, val1, val2, val3, val4, val5, val6) {
-  //add click event to all note button
+ //load Notes and hide buttons
+ function loadNotesHideButtons(id, val1, val2, val3, val4, val5, val6) {
+
+  //click event added to id
   $(id).click(function () {
 
    /*
-call hideShow function and
+call hideShowButtons function and
 hide and show targeted elements
 */
-   hideShow([val1, val2, val3],
+   hideShowButtons([val1, val2, val3],
     [val4, val5, val6]
    );
 
@@ -65,7 +79,7 @@ hide and show targeted elements
  //call load note function
  loadNotes();
 
- //add-note click event creates note row
+ //add-note click event creates row in database
  $('#add-note').click(function () {
 
   //make ajax call
@@ -84,10 +98,10 @@ hide and show targeted elements
      $('textarea').val('');
 
      /*
-     call hideShow function and
+     call hideShowButtons function and
      hide and show targeted elements
      */
-     hideShow(['.notes', '#edit', '#add-note'],
+     hideShowButtons(['.notes', '#edit', '#add-note'],
       ['.notepad-container', '#all-note', '#done']
      );
 
@@ -95,7 +109,7 @@ hide and show targeted elements
      $('textarea').focus();
 
      //call all note function
-     loadHide('#all-note', '#all-note', '#done',
+     loadNotesHideButtons('#all-note', '#all-note', '#done',
       '.notepad-container', '#add-note', '#edit', '.notes');
     }
    },
@@ -104,33 +118,6 @@ hide and show targeted elements
     $('#alert-content').text('There was an error with the Ajax Call. Please try again later!');
    }
   })
- });
-
- //event to edit and update note
- $('.notes').on('click', '.wrap', function (e) {
-
-  //store note text in a variable
-  let note = $(this).find('.text').text();
-  /*
- call hideShow function and
- hide and show targeted elements
- */
-  hideShow(['.notes', '#edit', '#add-note'],
-   ['.notepad-container', '#all-note', '#done']
-  );
-
-  //replace textarea  value with clicked note text
-  $('textarea').val(note);
-  //focus textarea
-  $('textarea').focus();
-
-  //change activeNote to id ot note to edit
-  activeNote = $(this).attr('id');
-
-  //call all note function
-  loadHide('#all-note', '#all-note', '#done',
-   '.notepad-container', '#add-note', '#edit', '.notes');
-
  });
 
  //ajax call to updatenote.php
@@ -154,16 +141,17 @@ hide and show targeted elements
   })
  });
 
-  //event to delete note in database
+ //edit button click event function
  $('#edit').click(function () {
   //hide and show element
   $('#edit').hide();
   $('#done').show();
 
-  //show delete button
+  //show edit and delete icons
   $('.delete').show();
+  $('.edit').show();
 
-  //add click event to delete
+  //click event added to delete icon
   $('.delete').click(function (e) {
    //get targeted element
    let target = e.target;
@@ -185,11 +173,11 @@ hide and show targeted elements
       $('.alert-container').hide();
      }, 2500);
 
-   //delete note container div
-     if(target.tagName === 'I'){
+     //delete note container div
+     if (target.tagName === 'I') {
       target.parentElement.remove();
      }
-     
+
     },
     error: function () {
      $('#alert-content').text('There was an error with the Ajax Call. Please try again later!');
@@ -197,10 +185,36 @@ hide and show targeted elements
    })
   });
 
-  //call all note function
-  loadHide('#done', '#all-note', '#done',
-   '.notepad-container', '#add-note', '#edit', '.notes');
+  //click event added to edit icon
+  $('.edit').click(function (e) {
 
+   //store targeted note text in a variable
+   let note = $(this).parent().find('span.h4').text();
+
+   /*
+  call hideShowButtons function and
+  hide and show targeted elements
+  */
+   hideShowButtons(['.notes', '#edit', '#add-note'],
+    ['.notepad-container', '#all-note', '#done']
+   );
+
+   //replace textarea  value with clicked note text
+   $('textarea').val(note);
+   //focus textarea
+   $('textarea').focus();
+
+   //change activeNote value
+   activeNote = $(this).attr('data-edit');
+
+   //call all note function
+   loadNotesHideButtons('#all-note', '#all-note', '#done',
+    '.notepad-container', '#add-note', '#edit', '.notes');
+  });
+
+  //call all note function
+  loadNotesHideButtons('#done', '#all-note', '#done',
+   '.notepad-container', '#add-note', '#edit', '.notes');
 
  })
 
