@@ -22,7 +22,7 @@ $(document).ready(function () {
     0 if it doesn't
     */
     if (notes.length) {
-     $('.notes').css('display', 'block'); console.log(
+     $('.notes').css('display', 'block');
     } else {
      $('.notes').css('display', 'grid');
     }
