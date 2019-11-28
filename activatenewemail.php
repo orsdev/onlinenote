@@ -13,6 +13,7 @@ include('connection.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>New Email activation</title>
         <link href="css/bootstrap.css" rel="stylesheet">
+        <link rel="shortcut icon" href="img/notie.png" type="image/x-icon">
         <style>
             h1{
                 color:purple;   

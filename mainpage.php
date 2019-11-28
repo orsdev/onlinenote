@@ -21,6 +21,7 @@ if (!isset($_SESSION['email'])) {
  <link rel="stylesheet" href="css/bootstrap.css">
  <link rel="stylesheet" href="css/font-awesome.min.css">
  <link rel="stylesheet" href="css/style.css">
+ <link rel="shortcut icon" href="img/notie.png" type="image/x-icon">
 </head>
  
 <body>
@@ -33,12 +34,6 @@ if (!isset($_SESSION['email'])) {
    <ul class="navbar-nav mr-auto">
     <li class=" nav-item mr-2">
      <a class="nav-link" href="profile.php">Profile<span class="sr-only">(current)</span></a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="help.php" tabindex="-1" aria-disabled="true">Help</a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="contact.php" tabindex="-1" aria-disabled="true">Contact us</a>
     </li>
    </ul>
    <ul class="navbar-nav ml-auto">

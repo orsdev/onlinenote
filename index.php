@@ -21,6 +21,7 @@ include 'remember.php';
  <title>NOTIE || SAVE NOTES EASILY</title>
  <link rel="stylesheet" href="css/bootstrap.css">
  <link rel="stylesheet" href="css/style.css">
+ <link rel="shortcut icon" href="img/notie.png" type="image/x-icon">
 </head>
 
 <body>
@@ -33,12 +34,6 @@ include 'remember.php';
    <ul class="navbar-nav mr-auto">
     <li class=" nav-item mr-2 active">
      <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Help</a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact us</a>
     </li>
    </ul>
    <ul class="navbar-nav ml-auto">

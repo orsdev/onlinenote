@@ -156,3 +156,7 @@ table {
   display: none;
   padding: 5px 8px;
 }
+
+#alert-content {
+ font-size: 1.2rem;
+}

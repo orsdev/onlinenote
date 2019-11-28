@@ -47,6 +47,7 @@ $row = mysqli_fetch_assoc($result);
  <title> NOTIE || PROFILE</title>
  <link rel="stylesheet" href="css/bootstrap.css">
  <link rel="stylesheet" href="css/style.css">
+ <link rel="shortcut icon" href="img/notie.png" type="image/x-icon">
 </head>
 
 <body>
@@ -59,12 +60,6 @@ $row = mysqli_fetch_assoc($result);
    <ul class="navbar-nav mr-auto">
     <li class=" nav-item mr-2">
      <a class="nav-link active" href="#">Profile<span class="sr-only">(current)</span></a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="help.php" tabindex="-1" aria-disabled="true">Help</a>
-    </li>
-    <li class=" nav-item mr-2">
-     <a class="nav-link" href="contact.php" tabindex="-1" aria-disabled="true">Contact us</a>
     </li>
     <li class=" nav-item">
      <a class="nav-link" href="mainpage.php" tabindex="-1" aria-disabled="true">Saved notes</a>

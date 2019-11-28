@@ -166,7 +166,7 @@ hide and show targeted elements
     type: 'POST',
     success: function (response) {
      $('.alert-container').show();
-     $('#alert-content').text(response);
+     $('#alert-content').html(response);
 
      //wait and hide alert-container
      setTimeout(() => {

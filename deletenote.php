@@ -13,7 +13,7 @@ if(!$result) {
  exit;
 };
 
-echo 'Note deleted successfully';
+echo '<p>Note deleted successfully</p>';
 //close connection
 mysqli_close($connect);
 ?>
