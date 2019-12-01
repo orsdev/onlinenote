@@ -76,7 +76,7 @@ include 'remember.php';
           <button class="btn-md btn-primary btn text-light" data-dismiss="modal" data-target="#signupmodal" data-toggle="modal"> Register </button>
          </div>
          <div class="col-6 text-right">
-          <input type="submit" value="Login" class="btn btn-md login text-light" name="login">
+          <input type="submit" value="Login" class="btn btn-md login text-light loginbtn" name="login">
          </div>
         </div>
        </form>
@@ -121,7 +121,7 @@ include 'remember.php';
          <input type="password" name="confirm-password" id="confirm-password" class="confirm-password form-control form-control-lg" placeholder="Confirm password">
         </div>
         <div class="form-group">
-         <input type="submit" name="signup" value="Submit" class="btn-lg btn text-light">
+         <input type="submit" name="signup" value="Submit" class="btn-lg btn signupbtn text-light">
         </div>
        </form>
       </div>

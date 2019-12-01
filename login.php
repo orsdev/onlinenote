@@ -52,7 +52,7 @@ $result = mysqli_query($connect, $sql);
 
 //stop query from running if there is an error
 if (!$result) {
- die("<p class='alert alert-danger'> Error: Query error</p>");
+ die("<p class='alert alert-danger'> <strong>Error: Query error</strong></p>");
 };
 //store number of row return in a variable
 $rowCount = mysqli_num_rows($result);
@@ -155,7 +155,8 @@ if ($rowCount == 1) {
 
   //stop query from running if there is an error
   if (!$result) {
-   die("<p class='alert alert-danger'> Error: unable to store data. Try again later</p>");
+   echo mysqli_error($connect);
+   die("<p class='alert alert-danger'> <strong>Error: unable to store data. Try again later</strong></p>");
   }else{
    echo "success";
   }
@@ -163,7 +164,7 @@ if ($rowCount == 1) {
  }
 } else {
  //output error message
- $errorMessage = "<div class='alert alert-danger'> Wrong email address or password</div>";
+ $errorMessage = "<div class='alert alert-danger'><strong> Wrong email address or password</strong></div>";
  echo $errorMessage;
  exit;
 }

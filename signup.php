@@ -4,7 +4,16 @@ session_start();
 
 //import connection.php file
 include 'connection.php';
- 
+
+// Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require './PHPMailer/Exception.php';
+require './PHPMailer/PHPMailer.php';
+require './PHPMailer/SMTP.php';
+
 //define error messages
 $missingEmail = '<p><strong> Please enter a email</strong> </p>';
 $missingUsername = '<p><strong>Please enter a username</p>';
@@ -133,8 +142,8 @@ $activationKey = bin2hex(openssl_random_pseudo_bytes(16));
 
 //query to insert into table
 $sql = "INSERT INTO 
-users(username , email, password , activation)
- VALUES('$username' , '$email' , '$password' , '$activationKey')";
+users(username , email, password , activation) 
+VALUES('$username' , '$email' , '$password' , '$activationKey')";
 
 //make query
 $result = mysqli_query($connect, $sql);
@@ -144,19 +153,86 @@ if (!$result) {
  die("<p class='alert alert-danger'> Error: Unable into insert user datails into database</p>");
 };
 
-/*
-send user an email with a link to activate.php with
-their email and activation code
-*/
 
-$message = "Please click on this link to activate your account\n\n";
-$message .= "http://127.0.0.1:5500/note/activate.php?email=" . urlencode($email) . "&key=$activationKey";
-$subject = "Confirm your Registration";
-$header = "From: onlinenote@gmail.com";
 
-//check if mail has no error
-if (mail($email, $subject, $message, $header)) {
- echo "<p class='alert alert-success'> Thank you for registering. A confirmation email has been sent to the email address provided. Please click on the activation link to activate your account</p>";
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+ //Server settings
+ $mail->isSMTP();                                             //Send using SMTP
+ $mail->Host = 'smtp.gmail.com';
+ $mail->SMTPAuth = true;
+ $mail->Username = 'oluwadareysamuel@gmail.com'; 
+ $mail->Password = 'fortitude19';                              
+ $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+ $mail->Port = 587;                                
+ //Recipients
+ $mail->setFrom('onlinenote@gmail.com', 'Notie');
+ $mail->addAddress($email, $username);
+
+$body = "<html>
+<head>
+<style>
+h1 {
+ padding: 20px 10px;
+ opacity: .6;
+ width: 100%;
+ text-align: center;
+}
+
+.message-body {
+ margin-top: 15px;
+ width: 100%;
+ text-align: center;
+}
+
+a.btn, a{
+border-radius:3px;
+color: white;
+display:inline-block;
+text-decoration:none;
+background-color:#3490dc;
+border-top:10px solid #3490dc;
+border-right:18px solid #3490dc;
+border-bottom:10px solid #3490dc;
+border-left:18px solid #3490dc;
+width: 120px;
+margin: 0 auto;
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+h3, p {
+ text-align: left;
+}
+
+</style>
+</head>
+<body>
+
+<h1> Notie </h1>
+<div class='message-body'>
+<h3> Hello! </h3>
+<p> Please click the button below to verify your account. </p>
+
+<a rel='nofollow' target='_blank' class='btn' href='http://127.0.0.1:5500/note/activate.php?email=" . urlencode($email) . "&key=$activationKey'>Verify Email Address</a>
+
+</div>
+</body>
+</html>";
+
+ // Content
+ $mail->isHTML(true); 
+ $mail->Subject = 'Verify Your Account';
+ $mail->Body    = $body;
+ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+ $mail->send();
+ echo "<p class='alert alert-success'> <strong>Thank you for registering. A confirmation email has been sent to the email address provided. Please click on the activation link to activate your account</strong></p>";
+} catch (Exception $e) {
+ echo "Message could not be sent. Try again later!";
 };
 
 mysqli_close($connect);

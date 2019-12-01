@@ -3,6 +3,15 @@
 session_start();
 include ('connection.php');
 
+// Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require './PHPMailer/Exception.php';
+require './PHPMailer/PHPMailer.php';
+require './PHPMailer/SMTP.php';
+
 //get user_id and new email sent through Ajax
 $id = $_SESSION['note_id'];
 
@@ -42,7 +51,7 @@ $sql = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($connect, $sql);
 $count = $count = mysqli_num_rows($result);
 if($count>0){
-    echo "<div class='alert alert-danger'><strong>There is already as user registered with that email! Please choose another one!</strong></div>"; exit;
+    echo "<div class='alert alert-danger'><strong>There is already a user registered with that email! Please choose another one!</strong></div>"; exit;
 }
 
 //get the current/old email
@@ -67,19 +76,87 @@ $sql = "UPDATE users SET activation='$activationKey' WHERE user_id = '$id'";
 $result = mysqli_query($connect, $sql);
 if(!$result){
     echo "<div class='alert alert-danger'><strong>There was an error inserting the user details in the database.</strong></div>";exit;
-}else{
-    //send email with link to activatenewemail.php with current email, new email and activation code
-    $message = "Please click on this link prove that you own this email:\n\n";
-$message .= "http://127.0.0.1:5500/note/activatenewemail.php?email=" .urlencode($oldemail) . "&newemail=" .urlencode($email) ."&key=$activationKey";
-$subject = "Email Update for your Online Notes App";
-$header = "From: onlinenote@gmail.com";
-
-
-if(mail($email, $subject, $message, $header)){
-       echo "<div class='alert alert-success'><strong>An email has been sent to $email. Please click on the link to prove you own that email address.</div></strong>";
 }
-    
+
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+ //Server settings
+ $mail->isSMTP();                                             //Send using SMTP
+ $mail->Host = 'smtp.gmail.com';
+ $mail->SMTPAuth = true;
+ $mail->Username = 'oluwadareysamuel@gmail.com'; 
+ $mail->Password = 'fortitude19';                              
+ $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+ $mail->Port = 587;                                
+ //Recipients
+ $mail->setFrom('onlinenote@gmail.com', 'Notie');
+ $mail->addAddress($email);
+
+$body = "<html>
+<head>
+<style>
+h1 {
+ padding: 20px 10px;
+ opacity: .6;
+ width: 100%;
+ text-align: center;
 }
+
+.message-body {
+ margin-top: 15px;
+ width: 100%;
+ text-align: center;
+}
+
+a.btn, a{
+border-radius:3px;
+color: white;
+display:inline-block;
+text-decoration:none;
+background-color:#3490dc;
+border-top:10px solid #3490dc;
+border-right:18px solid #3490dc;
+border-bottom:10px solid #3490dc;
+border-left:18px solid #3490dc;
+width: 120px;
+margin: 0 auto;
+text-align: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+h3, p {
+ text-align: left;
+}
+
+</style>
+</head>
+<body>
+
+<h1> Notie </h1>
+<div class='message-body'>
+<h3> Hello! </h3>
+<p> Please click on the link below to verify your new email address. </p>
+
+<a rel='nofollow' target='_blank' class='btn' href='http://127.0.0.1:5500/note/activatenewemail.php?email=" .urlencode($oldemail) . "&newemail=" .urlencode($email) ."&key=$activationKey'>Verify Email Address</a>
+
+</div>
+</body>
+</html>";
+
+ // Content
+ $mail->isHTML(true); 
+ $mail->Subject = 'Notie Email Update';
+ $mail->Body    = $body;
+ $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+ $mail->send();
+ echo "<div class='alert alert-success'><strong>An email has been sent to $email. Please click on the link to prove you own that email address.</div></strong>";
+} catch (Exception $e) {
+ echo "Message could not be sent. Try again later!";
+};
 
 mysqli_close($connect);
 ?>
