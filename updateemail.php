@@ -83,15 +83,17 @@ $mail = new PHPMailer(true);
 
 try {
  //Server settings
- $mail->isSMTP();                                             //Send using SMTP
+     // Enable verbose debug output
+ // $mail->SMTPDebug = SMTP::DEBUG_SERVER;         
+ $mail->isSMTP();                                //Send using SMTP
  $mail->Host = 'smtp.gmail.com';
  $mail->SMTPAuth = true;
- $mail->Username = 'oluwadareysamuel@gmail.com'; 
- $mail->Password = 'fortitude19';                              
+ $mail->Username = 'onlinenotie19@gmail.com'; 
+ $mail->Password = 'Onlinenotie1995';                              
  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
  $mail->Port = 587;                                
  //Recipients
- $mail->setFrom('onlinenote@gmail.com', 'Notie');
+ $mail->setFrom('onlinenotie19@gmail.com', 'Notie');
  $mail->addAddress($email);
 
 $body = "<html>
@@ -155,6 +157,8 @@ h3, p {
  $mail->send();
  echo "<div class='alert alert-success'><strong>An email has been sent to $email. Please click on the link to prove you own that email address.</div></strong>";
 } catch (Exception $e) {
+ //debug message
+ // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
  echo "Message could not be sent. Try again later!";
 };
 

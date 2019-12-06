@@ -160,15 +160,17 @@ $mail = new PHPMailer(true);
 
 try {
  //Server settings
- $mail->isSMTP();                                             //Send using SMTP
+     // Enable verbose debug output
+ //$mail->SMTPDebug = SMTP::DEBUG_SERVER;        
+ $mail->isSMTP();                                //Send using SMTP
  $mail->Host = 'smtp.gmail.com';
  $mail->SMTPAuth = true;
- $mail->Username = 'oluwadareysamuel@gmail.com'; 
- $mail->Password = 'fortitude19';                              
+ $mail->Username = 'onlinenotie19@gmail.com'; 
+ $mail->Password = 'Onlinenotie1995';             
  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
  $mail->Port = 587;                                
  //Recipients
- $mail->setFrom('onlinenote@gmail.com', 'Notie');
+ $mail->setFrom('onlinenotie19@gmail.com', 'Notie');
  $mail->addAddress($email, $username);
 
 $body = "<html>
@@ -226,12 +228,14 @@ h3, p {
  // Content
  $mail->isHTML(true); 
  $mail->Subject = 'Verify Your Account';
- $mail->Body    = $body;
+ $mail->Body = $body;
  $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
  $mail->send();
  echo "<p class='alert alert-success'> <strong>Thank you for registering. A confirmation email has been sent to the email address provided. Please click on the activation link to activate your account</strong></p>";
 } catch (Exception $e) {
+ //debug message
+ // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
  echo "Message could not be sent. Try again later!";
 };
 

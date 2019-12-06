@@ -48,12 +48,6 @@ if (!isset($_SESSION['email'])) {
  </nav>
  <main> 
   <div class="container note-container">
-   <!-- ALERT MESSAGE -->
-   <div class="alert-container">
-    <div id="alert" class="text-center pt-3 pb-2 badge badge-danger col-12">
-     <p id="alert-content"></p>
-    </div>
-   </div>
    <div class="row p-1">
     <div class="col-lg-12 d-flex justify-content-between buttons">
      <div class="btn-group mr-2">

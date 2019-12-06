@@ -159,30 +159,26 @@ hide and show targeted elements
    //get element data
    let dataId = $(this).attr('data-delete');
 
-   //make ajax call
-   $.ajax({
-    url: 'deletenote.php',
-    data: { id: dataId },
-    type: 'POST',
-    success: function (response) {
-     $('.alert-container').show();
-     $('#alert-content').html(response);
-
-     //wait and hide alert-container
-     setTimeout(() => {
-      $('.alert-container').hide();
-     }, 2500);
-
-     //delete note container div
-     if (target.tagName === 'I') {
-      target.parentElement.remove();
-     }
-
-    },
-    error: function () {
-     $('#alert-content').text('There was an error with the Ajax Call. Please try again later!');
-    }
-   })
+      //make ajax call
+      $.ajax({
+       url: 'deletenote.php',
+       data: { id: dataId },
+       type: 'POST',
+       success: function (response) {
+       //show alert
+        alert(response);
+        //delete note container div
+        if (target.tagName === 'I') {
+         target.parentElement.remove();
+        }
+        
+       },
+   
+       error: function (err) {
+        //show alert
+        alert('Something went wrong. Please try again.');
+       }
+      })
   });
 
   //click event added to edit icon

@@ -1,167 +1,171 @@
 :root {
-  --light-green: #82c91e;
-  --dark-green: #66a80f;
-  --light-blue: #d8dee9;
+ --light-green: #82c91e;
+ --dark-green: #66a80f;
+ --light-blue: #d8dee9;
 }
 
 html {
-  min-height: 100%;
-  position: relative;
+ min-height: 100%;
+ position: relative;
 }
 
 /* Make footer stick to the bottom */
 footer {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0.1rem;
-  padding-top: 1rem;
+ position: absolute;
+ bottom: 0;
+ margin-bottom: 0.1rem;
+ padding-top: 1rem;
 }
 
 .btn:focus {
-  box-shadow: none;
+ box-shadow: none;
 }
 
 .btn-lg,
 .login,
 .forgot,
 .submitbutton {
-  background: var(--light-green, #82c91e);
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  outline: none;
-  position: relative;
+ background: var(--light-green, #82c91e);
+ transition: all 0.3s;
+ -webkit-transition: all 0.3s;
+ -moz-transition: all 0.3s;
+ -ms-transition: all 0.3s;
+ -o-transition: all 0.3s;
+ outline: none;
+ position: relative;
 }
 
 .btn-lg:hover,
 .loginbtn:hover,
 .forgot:hover,
 .submitbutton:hover {
-  background: var(--dark-green, #66a80f);
+ background: var(--dark-green, #66a80f);
 }
 
 .signup-btn::after {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  content: "";
-  transition: all 0.1s;
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -ms-transition: all 0.1s;
-  -o-transition: all 0.1s;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ top: 0;
+ left: 0;
+ content: "";
+ transition: all 0.1s;
+ -webkit-transition: all 0.1s;
+ -moz-transition: all 0.1s;
+ -ms-transition: all 0.1s;
+ -o-transition: all 0.1s;
 }
 
 .signup-btn:active::after {
-  box-shadow: 0 0 5px 5px var(--dark-green, #66a80f);
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+ box-shadow: 0 0 5px 5px var(--dark-green, #66a80f);
+ border-radius: 5px;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ -ms-border-radius: 5px;
+ -o-border-radius: 5px;
+ transform: scale(1.1);
+ -webkit-transform: scale(1.1);
+ -moz-transform: scale(1.1);
+ -ms-transform: scale(1.1);
+ -o-transform: scale(1.1);
 }
 
 .active {
-  border-bottom: 3px solid var(--dark-green, #66a80f);
+ border-bottom: 3px solid var(--dark-green, #66a80f);
 }
 
 .note-container,
 .profile-container {
-  margin-top: 5rem;
+ margin-top: 5rem;
 }
 
 .all-note,
 .notepad-container,
 .done {
-  display: none;
+ display: none;
 }
 
 .notepad {
-  box-shadow: 0 2px 4px 1px gainsboro;
-  border: 2px solid white;
-  border-bottom: 5px inset var(--light-blue, #d8dee9);
-  padding: 1rem;
-  color: grey;
-  border-left: 3px outset var(--dark-green);
-  resize: horizontal;
-  max-width: 350px;
-  min-width: 300px;
+ box-shadow: 0 2px 4px 1px gainsboro;
+ border: 2px solid white;
+ border-bottom: 5px inset var(--light-blue, #d8dee9);
+ padding: 1rem;
+ color: grey;
+ border-left: 3px outset var(--dark-green);
+ resize: horizontal;
+ max-width: 350px;
+ min-width: 300px;
 }
 
 textarea:focus {
- outline: none;
+outline: none;
 }
 
 .notes {
- display: grid;
- grid-template-columns: repeat(auto-fill , minmax(300px, 1fr));
- margin: auto;
+display: grid;
+grid-template-columns: repeat(auto-fill , minmax(300px, 1fr));
+margin: auto;
 }
 
 table {
-  cursor: pointer;
+ cursor: pointer;
 }
 
 @media (max-width: 325px) {
-  .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
+ .buttons {
+   flex-direction: column;
+   align-items: center;
+ }
 
-  .buttons .btn-group:nth-child(even) {
-    margin-top: 10px;
-  }
+ .buttons .btn-group:nth-child(even) {
+   margin-top: 10px;
+ }
 }
 
 @media (max-width: 590px) {
- .notes {
-  width: 100%;
- }
+.notes {
+ width: 100%;
+}
 
- .notes-wrapper {
-  width: 99% !important;
- }
+.notes-wrapper {
+ width: 99% !important;
+}
 }
 
 .text {
-  /* text-overflow: ellipsis;
- white-space: nowrap; */
-  /* overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; */
-  opacity: 0.8;
+ /* text-overflow: ellipsis;
+white-space: nowrap; */
+ /* overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis; */
+ opacity: 0.8;
 }
 
 .mynote {
-  color: black;
-  box-shadow: 2px 4px 5px 0.1px gainsboro;
-  width: 100%;
-  text-align: center;
+ color: black;
+ box-shadow: 2px 4px 5px 0.1px gainsboro;
+ width: 100%;
+ text-align: center;
 }
 
 .wrap {
-  overflow: hidden;
+ overflow: hidden;
 }
 
 .alert-container {
-  display: none;
+ display: none;
 }
 
 .delete,
 .edit{
-  display: none;
-  padding: 5px 8px;
+ display: none;
+ padding: 5px 8px;
 }
 
 #alert-content {
- font-size: 1.2rem;
+font-size: 1.2rem;
+}
+
+.bg-light {
+   background-color: #e7e9ebb7 !important;
 }
